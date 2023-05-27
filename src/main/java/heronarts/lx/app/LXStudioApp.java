@@ -111,6 +111,8 @@ public class LXStudioApp extends PApplet implements LXPlugin {
     lx.registry.addPattern(heronarts.lx.app.pattern.AppPatternWithUI.class);
     lx.registry.addEffect(heronarts.lx.app.effect.AppEffect.class);
 
+    lx.registry.addPattern(heronarts.lx.app.pattern.XYZ_plane_n.class);
+
     // Create an instance of your global component and register it with the LX engine
     // so that it can be saved and loaded in project files
     this.myComponent = new MyComponent(lx);
