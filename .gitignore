@@ -17,3 +17,5 @@ application.macosx
 bin/
 target/
 
+.metadata
+.idea/workspace.xml

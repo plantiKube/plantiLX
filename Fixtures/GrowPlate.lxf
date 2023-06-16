@@ -1,0 +1,133 @@
+{
+  "label": "GrowPlate",
+
+  "tags": [ "custom", "another" ],
+
+  "parameters": {
+    "intParam": {
+      "type": "int", "default": 0, "min": 0, "max": 100,
+      "label": "Int Param",
+      "description": "Example integer parameter"
+    },
+    "offsetPointsParam": {
+      "type": "int", "default": 0, "min": 0, "max": 200,
+      "label": "offsetPoints",
+      "description": "Example offset int parameter"
+    },
+    "numPointsParam": {
+      "type": "int", "default": 60, "min": 10, "max": 100,
+      "label": "Number of Points",
+      "description": "Points in all ring fixture"
+    },
+    "floatParam": {
+      "type": "float", "default": 0.5,
+      "label": "Float Param",
+      "description": "Example float parameter"
+    },
+    "stringParam": {
+      "type": "string", "default": "text",
+      "label": "String Param",
+      "description": "Example string parameter, holding a hostname"
+    },
+    "boolParam": {
+      "type": "boolean", "default": false,
+      "label": "Bool Param",
+      "description": "Example boolean parameter"
+    }
+  },
+
+  "components": [
+    {
+      "type": "strip",
+      "numPoints": "${offsetPointsParam}",
+      "x": 0, "y": -100, "z": 0,
+      "spacing": 10,
+      "yaw": 0, "pitch": 0, "roll": 0
+    },
+    {
+      "type": "arc",
+      "numPoints": "${numPointsParam}",
+      "x": 0, "y": 0, "z": 0,
+      "mode": "center", "radius": 30, "degrees": 360,
+      "yaw": 0, "pitch": 0, "roll": 0
+    },
+    {
+      "type": "arc",
+      "numPoints": "${numPointsParam}",
+      "x": 0, "y": 100, "z": 0,
+      "mode": "center", "radius": 30, "degrees": 360,
+      "yaw": 0, "pitch": 0, "roll": 0
+    },
+    {
+      "type": "arc",
+      "numPoints": "${numPointsParam}",
+      "x": 0, "y": 200, "z": 0,
+      "mode": "center", "radius": 30, "degrees": 360,
+      "yaw": 0, "pitch": 0, "roll": 0
+    },
+    {
+      "type": "arc",
+      "numPoints": "${numPointsParam}",
+      "x": 100, "y": 200, "z": 0,
+      "mode": "center", "radius": 30, "degrees": 360,
+      "yaw": 0, "pitch": 0, "roll": 0
+    },
+    {
+      "type": "arc",
+      "numPoints": "${numPointsParam}",
+      "x": 200, "y": 200, "z": 0,
+      "mode": "center", "radius": 30, "degrees": 360,
+      "yaw": 0, "pitch": 0, "roll": 0
+    },
+    {
+      "type": "arc",
+      "numPoints": "${numPointsParam}",
+      "x": 200, "y": 100, "z": 0,
+      "mode": "center", "radius": 30, "degrees": 360,
+      "yaw": 0, "pitch": 0, "roll": 0
+    },
+    {
+      "type": "arc",
+      "numPoints": "${numPointsParam}",
+      "x": 200, "y": 0, "z": 0,
+      "mode": "center", "radius": 30, "degrees": 360,
+      "yaw": 0, "pitch": 0, "roll": 0
+    },
+    {
+      "type": "arc",
+      "numPoints": "${numPointsParam}",
+      "x": 100, "y": 0, "z": 0,
+      "mode": "center", "radius": 30, "degrees": 360,
+      "yaw": 0, "pitch": 0, "roll": 0
+    },
+    {
+      "type": "arc",
+      "numPoints": "${numPointsParam}",
+      "x": 100, "y": 100, "z": 0,
+      "mode": "center", "radius": 30, "degrees": 360,
+      "yaw": 0, "pitch": 0, "roll": 0
+    }
+  ],
+
+  "outputs": [
+    {
+      "protocol": "sacn",
+      "host": "${stringParam}",
+      "start": "0", "num": "${numPointsParam}*9 + ${offsetPointsParam}", "reverse": false,
+      "byteOrder": "rgb"
+    },
+    {
+      "protocol": "opc",
+      "transport": "tcp",
+      "host": "192.168.1.148",
+      "start": 0,
+      "num": "${numPointsParam}*9",
+      "port": 7890
+    }
+  ],
+
+  "meta": {
+    "key1": "val2",
+    "key3": "val4"
+  }
+}

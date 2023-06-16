@@ -22,6 +22,7 @@ import java.io.File;
 import heronarts.lx.LX;
 import heronarts.lx.LXComponent;
 import heronarts.lx.LXPlugin;
+import heronarts.lx.app.pattern.ModelTestWut;
 import heronarts.lx.osc.LXOscComponent;
 import heronarts.lx.parameter.BoundedParameter;
 import heronarts.lx.studio.LXStudio;
@@ -111,6 +112,10 @@ public class LXStudioApp extends PApplet implements LXPlugin {
     lx.registry.addPattern(heronarts.lx.app.pattern.AppPatternWithUI.class);
     lx.registry.addEffect(heronarts.lx.app.effect.AppEffect.class);
 
+    lx.registry.addPattern(heronarts.lx.app.pattern.XYZ_plane_n.class);
+
+    lx.registry.addPattern(heronarts.lx.app.pattern.modelworks.class);
+
     // Create an instance of your global component and register it with the LX engine
     // so that it can be saved and loaded in project files
     this.myComponent = new MyComponent(lx);
@@ -163,6 +168,12 @@ public class LXStudioApp extends PApplet implements LXPlugin {
       System.getProperty("os.version") + " " +
       System.getProperty("os.arch")
     );
+
+    // NOTE(mcslee): Hack for macOS Ventura!!
+    // https://github.com/processing/processing4/issues/544
+    // Hopefully to be removed in a future version
+    com.jogamp.opengl.GLProfile.initSingleton();
+
     boolean headless = false;
     File projectFile = null;
     for (int i = 0; i < args.length; ++i) {
