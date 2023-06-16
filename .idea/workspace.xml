@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a7cc6d7-3071-4b3f-9fb5-c2171eb5a316" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/heronarts/lx/app/pattern/ModelTestWut.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/heronarts/lx/app/pattern/modelworks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LXStudio-IDE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LXStudio-IDE.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/heronarts/lx/app/LXStudioApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/heronarts/lx/app/LXStudioApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/heronarts/lx/app/pattern/modelworks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/heronarts/lx/app/pattern/modelworks.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +74,7 @@
       <updated>1663906751165</updated>
       <workItem from="1684290706331" duration="13000" />
       <workItem from="1685205732526" duration="16000" />
-      <workItem from="1686886395803" duration="2184000" />
+      <workItem from="1686886395803" duration="3007000" />
     </task>
     <servers />
   </component>
