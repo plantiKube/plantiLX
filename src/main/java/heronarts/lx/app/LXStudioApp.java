@@ -22,6 +22,7 @@ import java.io.File;
 import heronarts.lx.LX;
 import heronarts.lx.LXComponent;
 import heronarts.lx.LXPlugin;
+import heronarts.lx.app.pattern.ModelTestWut;
 import heronarts.lx.osc.LXOscComponent;
 import heronarts.lx.parameter.BoundedParameter;
 import heronarts.lx.studio.LXStudio;
@@ -112,6 +113,8 @@ public class LXStudioApp extends PApplet implements LXPlugin {
     lx.registry.addEffect(heronarts.lx.app.effect.AppEffect.class);
 
     lx.registry.addPattern(heronarts.lx.app.pattern.XYZ_plane_n.class);
+
+    lx.registry.addPattern(heronarts.lx.app.pattern.modelworks.class);
 
     // Create an instance of your global component and register it with the LX engine
     // so that it can be saved and loaded in project files
