@@ -18,7 +18,7 @@ public class modelworks extends LXPattern {
     public final BooleanParameter z_en = new BooleanParameter("Z_en", false)
             .setDescription("X plane enabled");
 
-    public final DiscreteParameter x = new DiscreteParameter("select component", 0, 6)
+    public final DiscreteParameter x = new DiscreteParameter("select component", 0, model.children[0].children.length)
             .setDescription("select segment");
 
     public modelworks(LX lx) {
@@ -34,7 +34,8 @@ public class modelworks extends LXPattern {
 
         LXModel model = this.lx.getModel();
 
-        LXModel[] ringChildren = model.children[10].children;
+        // make sure the growPlate model is the first in the Fixtures list
+        LXModel[] ringChildren = model.children[0].children;
 
         int i = 0;
         for (LXModel ring : ringChildren) {

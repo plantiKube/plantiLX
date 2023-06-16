@@ -18,3 +18,4 @@ bin/
 target/
 
 .metadata
+.idea/workspace.xml
