@@ -15,8 +15,9 @@ import static java.lang.Math.max;
 
 @LXCategory("Test")
 public class modelworks extends LXPattern {
-    public final BooleanParameter z_en = new BooleanParameter("Z_en", false)
-            .setDescription("X plane enabled");
+
+    public final int NUM_BUTTONS = model.children[0].children.length;
+    public final BooleanParameter[] buttons = new BooleanParameter[NUM_BUTTONS];
 
     public final DiscreteParameter x = new DiscreteParameter("select component", 0, model.children[0].children.length)
             .setDescription("select segment");
@@ -25,11 +26,16 @@ public class modelworks extends LXPattern {
         super(lx);
 
         addParameter("x", this.x);
-        addParameter("z_en", this.z_en);
+
+        for (int i = 0; i < NUM_BUTTONS; i++) {
+            String thisButtonLabel = String.valueOf(i);
+            buttons[i] = new BooleanParameter(thisButtonLabel, false);
+            addParameter(thisButtonLabel, buttons[i]);
+
+        }
     }
 
     public void run(double deltaMs) {
-        boolean z_en = this.z_en.getValueb();
         int x = this.x.getValuei();
 
         LXModel model = this.lx.getModel();
@@ -39,7 +45,7 @@ public class modelworks extends LXPattern {
 
         int i = 0;
         for (LXModel ring : ringChildren) {
-            if (i == x){
+            if (buttons[i].getValueb()) {
                 for (LXPoint p : ring.points) {
                     colors[p.index] = LXColor.rgb(
                             (int) 0xff,
