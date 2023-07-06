@@ -19,13 +19,10 @@ public class modelworks extends LXPattern {
     public final int NUM_BUTTONS = model.children[0].children.length;
     public final BooleanParameter[] buttons = new BooleanParameter[NUM_BUTTONS];
 
-    public final DiscreteParameter x = new DiscreteParameter("select component", 0, model.children[0].children.length)
-            .setDescription("select segment");
 
     public modelworks(LX lx) {
         super(lx);
 
-        addParameter("x", this.x);
 
         for (int i = 0; i < NUM_BUTTONS; i++) {
             String thisButtonLabel = String.valueOf(i);
@@ -36,8 +33,6 @@ public class modelworks extends LXPattern {
     }
 
     public void run(double deltaMs) {
-        int x = this.x.getValuei();
-
         LXModel model = this.lx.getModel();
 
         // make sure the growPlate model is the first in the Fixtures list
